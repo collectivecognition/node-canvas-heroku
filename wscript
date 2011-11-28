@@ -1,6 +1,9 @@
 
 import glob
 import Options
+import os
+import Utils
+from TaskGen import feature, after, before
 
 srcdir = '.'
 blddir = 'build'
@@ -32,8 +35,18 @@ def configure(conf):
   conf.env.append_value('CCFLAGS', flags)
   conf.env.append_value('CXXFLAGS', flags)
 
+@feature('cxx')
+@after('apply_link')
+def apply_add_precompiled(tgen):
+  if hasattr(tgen, 'add_precompiled'):
+    for i in Utils.to_list(tgen.add_precompiled):
+      input_node = tgen.bld.srcnode.find_resource(i)
+      tgen.link_task.inputs.append(input_node)
+
 def build(bld):
   obj = bld.new_task_gen('cxx', 'shlib', 'node_addon')
   obj.target = 'canvas'
   obj.source = bld.glob('src/*.cc')
-  obj.uselib = ['CAIRO', 'GIF', 'JPEG']
+  obj.includes = 'cairo'
+  obj.uselib = ['GIF', 'JPEG']
+  obj.add_precompiled = ['cairo/libcairo.so']
