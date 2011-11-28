@@ -1,7 +1,7 @@
-prefix=/usr
+prefix=
 exec_prefix=${prefix}
-libdir=${prefix}/lib/x86_64-linux-gnu
-includedir=${prefix}/include
+libdir=${prefix}
+includedir=${prefix}
 
 Name: cairo-gobject
 Description: gobject functions for cairo graphics library
