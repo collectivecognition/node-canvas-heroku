@@ -28,4 +28,11 @@ $ heroku config:add LD_LIBRARY_PATH=/app/node_modules/canvas/cairo --app your-ap
 ```
 
 
+### P.P.S
+
+If you ever need to "re-install" a library like this on heroku, you'll need to either
+
+- destroy and recreate the app
+- up the version number in the package.json
+
 =======
