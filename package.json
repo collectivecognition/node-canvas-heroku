@@ -1,9 +1,9 @@
 {  "name": "canvas"
  , "description":  "Canvas fork"
- , "version":  "0.8.1"
+ , "version":  "0.8.2"
  , "author": "Originally TJ"
  , "keywords": ["canvas", "graphic", "graphics", "pixman", "cairo"]
- , "repository": "git://github.com/elspoono/node-canvas"
+ , "repository": "git://github.com/elspoono/node-canvas-heroku"
  , "scripts": {
    "preinstall": "node-waf configure build"
  }
