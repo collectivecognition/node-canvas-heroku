@@ -31,7 +31,7 @@ def configure(conf):
     conf.env.append_value('LINKFLAGS', ['-pg'])
 
   #conf.check_cfg(package='cairo', args='--cflags --libs', mandatory=True)
-  flags = ['-O3', '-Wall', '-D_FILE_OFFSET_BITS=64', '-D_LARGEFILE_SOURCE']
+  flags = ['-O3', '-Wall', '-D_FILE_OFFSET_BITS=64', '-D_LARGEFILE_SOURCE', '-fPIC']
   conf.env.append_value('CCFLAGS', flags)
   conf.env.append_value('CXXFLAGS', flags)
 
@@ -48,5 +48,5 @@ def build(bld):
   obj.target = 'canvas'
   obj.source = bld.glob('src/*.cc')
   obj.includes = 'cairo'
-  obj.uselib = []
+  obj.uselib = ['GIF']
   obj.add_precompiled = ['cairo/libcairo.so']
