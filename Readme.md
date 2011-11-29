@@ -17,4 +17,15 @@ LD_LIBRARY_PATH=/app/node_modules/canvas/cairo
 * `LD_PRELOAD` will tell heroku to always preload those libs
 * `LD_LIBRARY_PATH` will tell heroku where to find aditional dinamic libs
 
+
+#### Note:
+
+If the `.env` file doesn't work for you, alternatively, you can try:
+
+```
+$ heroku config:add LD_PRELOAD='/app/node_modules/canvas/cairo/libcairo.so /app/node_modules/canvas/lib/libpixman-1.so.0 /app/node_modules/canvas/lib/libfreetype.so.6' --app your-app
+$ heroku config:add LD_LIBRARY_PATH=/app/node_modules/canvas/cairo --app your-app
+```
+
+
 =======
