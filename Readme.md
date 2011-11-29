@@ -18,7 +18,7 @@ LD_LIBRARY_PATH=/app/node_modules/canvas/cairo
 * `LD_LIBRARY_PATH` will tell heroku where to find aditional dinamic libs
 
 
-#### Note:
+#### Note on #2:
 
 If the `.env` file doesn't work for you, alternatively, you can try:
 
@@ -28,11 +28,13 @@ $ heroku config:add LD_LIBRARY_PATH=/app/node_modules/canvas/cairo --app your-ap
 ```
 
 
-### P.P.S
+## Final Notes
 
 If you ever need to "re-install" a library like this on heroku, you'll need to either
 
-- destroy and recreate the app
-- up the version number in the package.json
+- Destroy and recreate the app on heroku
+- Or, up the version number in the package.json
+
+Heroku won't re-install, it will only pull from cache, if the version number is the same.
 
 =======
