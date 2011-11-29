@@ -1,6 +1,6 @@
 {  "name": "canvas"
  , "description":  "Canvas fork"
- , "version":  "0.8.2"
+ , "version":  "0.8.1"
  , "author": "Originally TJ"
  , "keywords": ["canvas", "graphic", "graphics", "pixman", "cairo"]
  , "repository": "git://github.com/elspoono/node-canvas-heroku"
