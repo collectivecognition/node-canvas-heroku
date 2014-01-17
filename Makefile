@@ -2,7 +2,7 @@
 ADDON = build/default/canvas.node
 
 $(ADDON): src/*.cc
-	node-waf configure build
+	node-gyp configure build
 
 test: $(ADDON)
 	@./node_modules/.bin/expresso \
@@ -16,6 +16,6 @@ benchmark:
 	@node benchmarks/run.js
 
 clean:
-	node-waf distclean
+	node-gyp distclean
 
 .PHONY: test test-server benchmark clean
